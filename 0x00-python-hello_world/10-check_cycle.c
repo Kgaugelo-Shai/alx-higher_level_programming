@@ -12,10 +12,10 @@ int check_cycle(listint_t *list)
 	listint_t *buffer = list;
 	listint_t *mask = list;
 
-	if (list == NULL)
+	if (!list)
 		return (0);
 
-	while (buffer != NULL && mask != NULL && mask)
+	while (buffer && mask && mask->next)
 	{
 		buffer =  buffer->next;
 		mask = mask->next->next;

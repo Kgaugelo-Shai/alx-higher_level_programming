@@ -10,13 +10,13 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_ordered_list(self):
         """Test ordered list of integers."""
-        ordrd = [1, 2, 3, 4]
-        self.assertEqual(max_integer(ordrd), 4)
+        ordered = [1, 2, 3, 4]
+        self.assertEqual(max_integer(ordered), 4)
 
     def test_unordered_list(self):
         """Test unordered list of integers."""
         unordered = [1, 2, 4, 3]
-        self.assertEqual(max_integer(unordrd), 4)
+        self.assertEqual(max_integer(unordered), 4)
 
     def test_max_at_begginning(self):
         """Test list beginning max value."""

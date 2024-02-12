@@ -56,7 +56,6 @@ class Rectangle(Base):
             raise ValueError("height must be > 0")
         self.__height = value
 
-
     @property
     def x(self):
         """Returns x coordinate of rectangle"""
@@ -102,8 +101,7 @@ class Rectangle(Base):
             print()
 
     def update(self, *args):
-        """Updates a rectangle  by updating each attribute
-        
+        """Updates a rectangle by updating each attribute
         Args:
             *args (int): new value to assign
                 - 1st argument should be the id attribute
@@ -113,7 +111,7 @@ class Rectangle(Base):
                 - 5th argument should be the y attribute
         """
 
-        
     def __str__(self):
         """Returns information on the rectangle class"""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height)
+        string = "[Rectangle] ({}) {}/{} - {}/{}"
+        return string.format(self.id, self.__x, self.__y, self.__width, self.__height)

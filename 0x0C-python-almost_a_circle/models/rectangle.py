@@ -118,7 +118,7 @@ class Rectangle(Base):
                         self.__init__(self.width, self.height, self.x, self.y)
                     else:
                         self.id = a
-                elif  c == 1:
+                elif c == 1:
                     self.width = a
                 elif c == 2:
                     self.height = a
@@ -127,8 +127,7 @@ class Rectangle(Base):
                 elif c == 4:
                     self.y = a
                 c += 1
-                    
-                    
+
     def __str__(self):
         """Returns information on the rectangle class"""
         string = "[Rectangle] ({}) {}/{} - {}/{}"

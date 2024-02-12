@@ -110,7 +110,25 @@ class Rectangle(Base):
                 - 4th argument should be the x attribute
                 - 5th argument should be the y attribute
         """
-
+        if args and len(args) != 0:
+            c = 0
+            for a in args:
+                if c == 0:
+                    if a is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = a
+                elif  c == 1:
+                    self.width = a
+                elif c == 2:
+                    self.height = a
+                elif c == 3:
+                    self.x = a
+                elif c == 4:
+                    self.y = a
+                c += 1
+                    
+                    
     def __str__(self):
         """Returns information on the rectangle class"""
         string = "[Rectangle] ({}) {}/{} - {}/{}"

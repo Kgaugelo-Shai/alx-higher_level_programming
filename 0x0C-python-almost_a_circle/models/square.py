@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 """This defines a square class that inherits from
    a rectangle class"""
 from models.rectangle import Rectangle

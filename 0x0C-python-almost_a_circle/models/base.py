@@ -66,3 +66,68 @@ class Base:
         if json_string is None:
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Returns an instance with all atttibutes already set
+
+        Args:
+            **dictionary (dict): a pointer to a dictionary
+        """
+        if dictionary and dictionary != {}:
+            if cls.__name__ == "Rectangle":
+                temp = cls(1, 1)
+            elif cls.__name__ == "Square":
+                temp = cls(1)
+            temp.update(**dictionary)
+            return temp
+
+    @classmethod
+    def load_from_file(cls):
+        """Returns a list of instances created from JSON file
+
+        Returns:
+            if the file does not exist - an empty list
+            Otherwise - a list of the instantiated classes
+        """
+        filename = cls.__name__ + ".json"
+        with open(filename, "r") as j_file:
+            list_dict = Base.from_json_string(j_file.read())
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Returns an instance with all the attributes already set
+
+        Args:
+            **dictionary (dict): key/value pairs to instantiate object with
+        """
+        if dictionary and dictionary != []:
+            if cls.__name__ == "Rectangle":
+                new_base = cls(1, 1)
+            elif cls.__name__ == "Square":
+                new_base = cls(1)
+            new_base.update(**dictionary)
+            return new_base
+
+    @classmethod
+    def load_from_file(cls):
+        """Returns a list of instances
+
+        Reads the file cls.__name__.json
+
+        Returns:
+            - a list of instances on success
+            - otherwise, an empty list
+            """
+
+        filename = cls.__name__ + ".json"
+
+        try:
+            with open(filename, "r") as j_file:
+                dict_ls = Base.from_json_string(j_file.read())
+                new = []
+                for ele in dict_ls:
+                    new.append(cls.create(**ele))
+                return new
+        except IOError:
+            return []

@@ -70,6 +70,9 @@ class Square(Rectangle):
                 elif k == "y":
                     self.y = v
 
+    def area(self):
+        """Returns the area of a square"""
+        return (self.width * self.width)
     def to_dictionary(self):
         """Returns a dictionary representation of the square"""
         return {"id": self.id,

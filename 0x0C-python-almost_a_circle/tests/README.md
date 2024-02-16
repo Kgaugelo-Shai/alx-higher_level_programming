@@ -1,1 +1,0 @@
-This folder contains all the tests models that I utilized

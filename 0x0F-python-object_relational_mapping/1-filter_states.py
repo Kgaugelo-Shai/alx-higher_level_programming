@@ -11,9 +11,9 @@ if __name__ == "__main__":
     conn_db = MySQLdb.connect(host="localhost", user=sys.argv[1],
                               passwd=sys.argv[2], db=sys.argv[3], port=3306)
     # create a cursor for the connection
-    cursor =  conn_db.cursor()
+    cursor = conn_db.cursor()
     # execute query with cursor
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%'");
+    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%'")
     # Fetch the results
     rows = cursor.fetchall()
     # iterate through list

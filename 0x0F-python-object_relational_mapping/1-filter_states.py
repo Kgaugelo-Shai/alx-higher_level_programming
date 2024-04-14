@@ -13,7 +13,7 @@ if __name__ == "__main__":
     # create a cursor for the connection
     cursor = conn_db.cursor()
     # execute query with cursor
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%'"
+    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%'"
                    " ORDER BY states.id")
     # Fetch the results
     rows = cursor.fetchall()

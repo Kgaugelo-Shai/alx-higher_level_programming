@@ -6,8 +6,9 @@ import sys
 import urllib.request
 import urllib.error
 
+
 if __name__ == "__main__":
-    url = urllib.request.Request(sys.argv[1])
+    web_reqst = urllib.request.Request(sys.argv[1])
     try:
         with urllib.request.urlopen(web_reqst) as response:
             content = response.read()

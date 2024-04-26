@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
     url = sys.argv[1]
     email = {}
-    email["email"] = {sys.argv[2]}
+    email["email"] = sys.argv[2]
     content = urllib.parse.urlencode(email).encode("ascii")
 
     web_reqst = urllib.request.Request(url, content)

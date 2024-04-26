@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 """ Python script that fetches https://alx-intranet.hbtn.io/status """
 
-from urllib import (request)
+import urllib.request
 
 
 if __name__ == "__main__":
-    web_reqst = request.Request("http://intranet.hbtn.io/status")
-    with request.urlopen(web_reqst) as response:
-        body = response.read()
+    web_reqst = urllib.request.Request("http://alx-intranet.hbtn.io/status")
+    with urllib.request.urlopen(web_reqst) as response:
+        cont = response.read()
 
         print("Body response")
-        print("\t- type: {}".format(type(body)))
-        print("\t- content: {}".format(body))
-        print("\t- utf8 content: {}".format(body.decode("utf8")))
+        print("\t- type: {}".format(type(cont)))
+        print("\t- content: {}".format(cont))
+        print("\t- utf8 content: {}".format(cont.decode("utf8")))

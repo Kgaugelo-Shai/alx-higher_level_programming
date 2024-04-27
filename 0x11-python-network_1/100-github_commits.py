@@ -14,4 +14,5 @@ if __name__ == "__main__":
     commits = reqst.json()
     for c in [0, 10]:
         print("{}: {}".format(commits[c].get("sha"),
-                              commits[c].get("commit").get("author").get("name")))
+                              commits[c].get("commit"
+                              ).get("author").get("name")))

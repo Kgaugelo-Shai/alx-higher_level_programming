@@ -11,8 +11,8 @@ import sys
 if __name__ == "__main__":
     url = 'https://api.github.com/repos/{}/{}'.format(sys.argv[1], sys.argv[2])
 
+    reqst = request.get(url)
     commit_js = reqst.json()
-    reqst = requests.get(url)
     for c in range(10):
         print("{}: {}".format(
             commit_js[c].get("sha"),

@@ -13,8 +13,8 @@ if __name__ == "__main__":
     else:
         reqst = requests.post(url, data={'q': ""})
     try:
-         response = reqst.json()
-        if response:
+        response = reqst.json()
+        if response != {}:
             print("[{}] {}".format(response.get("id"), response.get("name")))
         else:
             print("No result")

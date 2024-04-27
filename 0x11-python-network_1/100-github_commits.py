@@ -10,9 +10,10 @@ import sys
 
 if __name__ == "__main__":
     url = 'https://api.github.com/repos/{}/{}'.format(sys.argv[1], sys.argv[2])
+
+    commit_js = reqst.json()
     reqst = requests.get(url)
-    commit = reqst.json()
-    for c in range[0, 10]:
+    for c in range(10):
         print("{}: {}".format(
-            commits[c].get("sha"),
-            commits[c].get("commit").get("author").get("name")))
+            commit_js[c].get("sha"),
+            commit_js[c].get("commit").get("author").get("name")))

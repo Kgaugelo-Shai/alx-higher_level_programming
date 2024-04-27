@@ -4,7 +4,7 @@
 """
 
 import requests
-from sys
+import sys
 
 if __name__ == "__main__":
     reqst = requests.get(sys.argv[1])

@@ -12,6 +12,6 @@ if __name__ == "__main__":
     url = 'https://api.github.com/repos/{}/{}'.format(sys.argv[1], sys.argv[2])
     reqst = requests.get(url)
     commits = reqst.json()
-    for c in commits:
-        print("{}: {}".format(c.get("sha"),
-                              c.get("commit").get("author").get("name")))
+    for c in [0, 10]:
+        print("{}: {}".format(commits[c].get("sha"),
+                              commits[c].get("commit").get("author").get("name")))

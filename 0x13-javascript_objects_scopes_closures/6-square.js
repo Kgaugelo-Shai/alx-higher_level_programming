@@ -11,7 +11,7 @@ class Square extends SquareBase {
       for (let j = 0; j < this.width; j++) {
         sqr += c;
       }
-	console.log(sqr);
+      console.log(sqr);
     }
   }
 }

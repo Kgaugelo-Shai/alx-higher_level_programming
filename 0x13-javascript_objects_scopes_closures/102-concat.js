@@ -17,5 +17,5 @@ function writefiles (file, content) {
 }
 let newFile = '';
 newFile = readfiles(f1);
-dnewFile += readfiles(f2);
+newFile += readfiles(f2);
 writefiles(f3, newFile);

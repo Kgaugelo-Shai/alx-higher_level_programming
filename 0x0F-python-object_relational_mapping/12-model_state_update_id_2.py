@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Adds Louisiana to list of state names
+""" Changes the name if a state
 """
 import sys
 from model_state import Base, State
@@ -13,8 +13,6 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    state_name = State(name='Louisiana')
-    session.add(state_name)
-    new_inst = session.query(State).filter_by(name='Louisiana').first()
-    print(new_inst.id)
+    new_inst = session.query(State).filter_by(id=2).first()
+    new_inst.name = 'New Mexico'
     session.commit()

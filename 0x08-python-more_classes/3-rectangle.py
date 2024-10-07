@@ -65,5 +65,6 @@ class Rectangle:
         for y in range(self.__height):
             for x in range(self.__width):
                 draw_rec += "#"
-            draw_rec += "\n"
+            if y < self.__height - 1:
+                draw_rec += "\n"
         return (draw_rec)

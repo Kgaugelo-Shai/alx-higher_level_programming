@@ -58,7 +58,7 @@ class Rectangle:
         return pm
 
     def __str__(self) -> str:
-        """ String representation"""
+        """String representation"""
         if self.__width == 0 or self.__height == 0:
             return("")
         draw_rec = ""

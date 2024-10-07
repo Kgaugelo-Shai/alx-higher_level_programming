@@ -53,14 +53,14 @@ class Rectangle:
         """Returns the perimeter of the rectangle"""
         if self.__width == 0 or self.__height == 0:
             pm = 0
-            return pm
+            return (pm)
         pm = 2 * (self.__height + self.__width)
-        return pm
+        return (pm)
 
     def __str__(self) -> str:
-        """String representation"""
+        """String representation of rectangle"""
         if self.__width == 0 or self.__height == 0:
-            return("")
+            return ("")
         draw_rec = ""
         for y in range(self.__height):
             for x in range(self.__width):

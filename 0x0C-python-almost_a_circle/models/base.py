@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines a base class model"""
 import json
+import csv
 
 
 class Base:
@@ -131,3 +132,66 @@ class Base:
                 return new
         except IOError:
             return []
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Loads  csv file."""
+        from models.rectangle import Rectangle
+        from models.square import Square
+        newObj = []
+        with open('{}.csv'.format(cls.__name__), 'r', newline='',
+                  encoding='utf-8') as f:
+            read_csv = csv.reader(f)
+            for row in read_csv:
+                row = [int(r) for r in row]
+                if cls is Rectangle:
+                    d = {"id": row[0], "width": row[1], "height": row[2],
+                         "x": row[3], "y": row[4]}
+                else:
+                    d = {"id": row[0], "size": row[1],
+                         "x": row[2], "y": row[3]}
+                newObj.append(cls.create(**d))
+        return newObj
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Saves data to csv ."""
+        from models.rectangle import Rectangle
+        from models.square import Square
+        if list_objs is not None:
+            if cls is Rectangle:
+                list_objs = [[o.id, o.width, o.height, o.x, o.y]
+                             for o in list_objs]
+            else:
+                list_objs = [[o.id, o.size, o.x, o.y]
+                             for o in list_objs]
+        with open('{}.csv'.format(cls.__name__), 'w', newline='',
+                  encoding='utf-8') as f:
+            write_to_csv = csv.writer(f)
+            write_to_csv.writerows(list_objs)
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        import turtle
+        import time
+        from random import randrange
+        turtle.Screen().colormode(255)
+        for el in list_rectangles + list_squares:
+            shell = turtle.Turtle()
+            shell.color((randrange(255), randrange(255), randrange(255)))
+            shell.pensize(1)
+            shell.penup()
+            shell.pendown()
+            shell.setpos((el.x + shell.pos()[0], el.y - shell.pos()[1]))
+            shell.pensize(10)
+            shell.forward(el.width)
+            shell.left(90)
+            shell.forward(el.height)
+            shell.left(90)
+            shell.forward(el.width)
+            shell.left(90)
+            shell.forward(el.height)
+            shell.left(90)
+            shell.end_fill()
+
+        time.sleep(5)
